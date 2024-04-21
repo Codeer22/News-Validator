@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fake News Classifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Fake News Classifier</h1>
+    <form method="post">
+        <label for="text">Enter text:</label>
+        <textarea name="text" id="text" rows="5" required></textarea>
+        <button type="submit">Classify</button>
+    </form>
+    {% if result %}
+    <h2>Results:</h2>
+    <p>Text: {{ result.text }}</p>
+    <p>Logistic Regression: {{ result.lr_pred }}</p>
+    <p>Decision Tree Classifier: {{ result.dtc_pred }}</p>
+    <p>Gradient Boosting Classifier: {{ result.gclf_pred }}</p>
+    <p>Random Forest Classifier: {{ result.rclf_pred }}</p>
+    {% endif %}
+</body>
+</html>
